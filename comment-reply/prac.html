@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Commment Reply System</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style>
+		.container{
+			padding:5px;
+		}
+		textarea{
+			border-radius: 5px;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div class="container text-center">
+		<h3 class="text-left text-success">Code</h3>
+		<textarea id="code" rows="10" cols="100" ></textarea>
+		<div>
+		<button class="btn btn-success text-center">Run</button>
+		<button class="btn btn-success text-center" id='clearcode' >Clear</button>
+	</div>
+	</div>
+	<div class="container text-center">
+		<h3 class="text-left  text-success">Result</h3>
+		<textarea  rows="10" cols="100" id="result" ></textarea>
+		<div>
+		<button class="btn btn-success" id="copy">Copy</button>
+		<button class="btn btn-success" id='clearres'>Clear</button>
+	</div>
+		
+	</div>
+
+	<script>
+
+		 (document.querySelector('.btn')).addEventListener('click',function(){
+		 	(document.querySelector('#result')).value = eval(document.querySelector('#code').value);
+		 });
+		 (document.querySelector('#copy')).addEventListener('click',function(){
+		 	(document.querySelector('#result')).select();
+		 	document.execCommand('copy');
+
+		 });
+		  (document.querySelector('#clearres')).addEventListener('click',function(){
+		 	(document.querySelector('#result')).value
+		 	='';
+		 	
+		 });
+		  (document.querySelector('#clearcode')).addEventListener('click',function(){
+		 	(document.querySelector('#code')).value
+		 	='';
+		 	
+		 });
+		  (document.querySelector('#clearcode')).addEventListener('click',function(e){
+		 	console.log(e);
+		 	
+		 });
+		
+	</script>
+</body>
+</html>

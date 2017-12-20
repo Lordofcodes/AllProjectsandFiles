@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Color Changing Text</title>
+	<style>
+
+	@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
+
+div {
+  padding: 0.4rem 0;
+ color: white;
+  text-align: center;
+  font-size: 5rem;
+}
+
+
+body {
+  font-family: Lato;
+  background: #242424;
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+	</style>
+</head>
+  <div >
+
+
+  
+
+ </div>
+<script type="text/javascript">
+
+
+  
+  var obj = document.querySelector('div')
+  setInterval(function(){
+    var a = new Date();
+
+if(a.getHours()<12){
+  obj.innerHTML=`${a.getHours()}AM:${a.getMinutes()<10?'0':''}${a.getMinutes()}:${a.getSeconds()<10?'0':''}${a.getSeconds()}`;
+
+}
+else{
+  obj.innerHTML=`${a.getHours()-12}PM : ${a.getMinutes()<10?'0':''}${ a.getMinutes()}:${a.getSeconds()<10?'0':''}${a.getSeconds()}`;
+}
+  },100);
+  
+      
+
+</script>
+</body>
+
+</html>

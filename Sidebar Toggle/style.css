@@ -1,0 +1,40 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#Sidebar{
+	background: #2B323A;
+	color: #535858;
+	font-size: 1.5rem;
+	padding: 5px;
+	width: 50px;
+	overflow: hidden;
+	
+	text-transform: capitalize;
+}
+#Sidebar ul li{
+	border-bottom: 1px solid #eee;
+	padding: 4px;
+	white-space:  nowrap;
+}
+#Sidebar:hover{
+	color: #fff;
+	width: 200px;
+	transition:all .5s cubic-bezier(.15,.99,.18,1.01);
+}
+.title{
+	position: relative;
+	left: 20px;
+	font-size: 20px
+}
+i {padding: 3px;
+width: 40px;
+height: 40px;
+text-align: center;}
+i:hover{
+	background:#ddd;
+	border-radius:50%;
+	color:red;
+
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Balence</title>
+</head>
+<body>
+
+	
+
+	<script>
+		 /*let budget= ()=>{
+			let balence = 0;
+			let depositeBalence = (depositeValue)=>balence+=depositeValue;
+			let checkBalence =()=> balence;
+			let drawBalence =(drawingValue)=> balence-=drawingValue;
+		}
+let wallet = new Budget;
+console.log(wallet);*/
+   function Balence(){
+  this.balence= 10,
+  this.checkBalence=function(){console.log( this.balence);},
+  this.depositeBalence=function(depositeAmount){  this.balence+=depositeAmount;},
+  this.drawBalence=function(drawAmount){  this.balence-=drawAmount;}
+  
+}
+
+let Wallet = new Balence();
+Wallet.depositeBalence(50);
+Wallet.drawBalence(30);
+Wallet.checkBalence();
+
+	</script>
+</body>
+</html>

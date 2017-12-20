@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Randomize Words</title>
+</head>
+
+<body>
+    <script>
+    var sent = window.prompt("Please Enter your Sentence: ");
+    sent = sent.split(' ');
+    var b = [];
+    for (var i = 0; i < sent.length; i++) {
+        var randInt = Math.floor(Math.random() * sent.length);
+
+        if (!b.includes(sent[randInt])) {
+            b.push(sent[randInt]);
+            console.log(randInt);
+        } else {
+            i--;
+            continue
+        }
+
+    }
+    console.log(b.join('/'));
+    </script>
+</body>
+
+</html>

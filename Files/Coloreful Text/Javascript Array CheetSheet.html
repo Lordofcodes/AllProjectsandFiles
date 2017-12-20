@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript Array CheetSheet</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str = ['green', 'red', 'blue', 'yellow', 'black', 'white', 'brown'];
+		var num = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+								/*Array Creation*/
+
+	//1. By Array Constructor
+
+		var animals = new Array(3) // passing  the number of slots required, create an array with three items
+		var animals = new Array("Dog", "Cat", "Rat") // passing the items, create an array with three items
+
+		// 'new' operator can be omitted, it will result the same.
+
+	//2. By Using Array Literals
+
+		var animals = [] // Creates an empty array
+		var animals = ["Dog", "Cat", "Rat"] // creates an array with three itmes.
+
+						/* Methods for Arrays*/
+
+	// 1. Array.length()
+
+		var colors = [“red”, “blue”, “green”]; //creates an array with three strings
+		var names = []; //creates an empty array
+		alert(colors.length); //3
+		alert(names.length); //0
+
+		// Removing or adding to or from last position using array.length
+
+		var colors = [“red”, “blue”, “green”]; //creates an array with three strings
+		colors.length = 2; //sets lenght of colors 2 removing the 'green'
+		alert(colors)// ["red","blue"]
+		alert(colors[2]); //undefined
+
+		colors.length[2]= "green" // added green again
+		alert(colors) // ["red", "blue", "green"];
+
+							/* Detecting Array*/
+
+
+
+							/*Conversion Methods*/
+
+		var colors = [“red”, “blue”, “green”]; //creates an array with three strings
+		alert(colors.toString()); //red,blue,green
+		alert(colors.valueOf()); //red,blue,green
+		alert(colors); //red,blue,gree
+
+		var colors = [“red”, “green”, “blue”];
+		alert(colors.join(“,”)); //red,green,blue
+		alert(colors.join(“||”)); //red||green||blue
+		// If no value or undefined is passed into the
+                             //join() method, then a comma is used as the separator
+
+
+                             // Join and Split
+
+        var colors = "red,blue,green";
+        var temp = colors.split(','); //["red", "blue", "green"]
+        colors.join('');// "redgreenblue"
+        colors.join(' '); //"red green blue"
+
+        							 /*STACK METHODS  (push and pop) */
+     //STACK -> LIFO { last in first out, the most recently added item is the first one removed}
+     //push() -> accepts any number of arguments and adds them to the end of the array,
+                 //returning the array’s new length.
+     // pop() ->  removes the last item in the
+                 //array, decrements the array’s length, and returns that item.  
+
+      	var colors = new Array(); //create an array
+		var count = colors.push(“red”, “green”); //push two items
+		alert(count); //2
+		count = colors.push(“black”); //push another item on , in the end
+		alert(count); //3
+		var item = colors.pop(); //get the last item
+		alert(item); //”black”
+		alert(colors.length); //2
+
+		var colors = [“red”, “blue”];
+		colors.push(“brown”); //add another item
+		colors[3] = “black”; //add an item
+		alert(colors.length); //4
+		var item = colors.pop(); //get the last item
+		alert(item); //”black
+
+									/*STACK METHODS (shift and push)*/
+	//QUEUE -> FIFO { first in  first out, the most lately added item is the first one removed}
+	//shift()-> which removes the first item in the array and returns it
+
+
+		var colors = new Array(); //create an array
+		var count = colors.push(“red”, “green”); //push two items
+		alert(count); //2
+		count = colors.push(“black”); //push another item on
+		alert(count); //3
+		var item = colors.shift(); //get the first item
+		alert(item); //”red”
+		alert(colors.length); //2
+
+	//unshift()-> adds any number of items to the front of an array and returns
+                  //the new array length.
+
+        var colors = new Array(); //create an array
+		var count = colors.unshift(“red”, “green”); //push two items
+		alert(count); //2
+		count = colors.unshift(“black”); //push another item on
+		alert(count); //3
+		var item = colors.pop(); //get the first item
+		alert(item); //”green”
+		alert(colors.length); //2
+
+									 /*REORDERING METHODS*/
+	//reverse()-> method simply reverses the order of items in an array.
+		var values = [1, 2, 3, 4, 5];
+		values.reverse();
+		alert(values); //5,4,3,2,1
+	//sort()-> puts the items in ascending order
+	var values = [0, 1, 5, 10, 15];
+	values.sort();
+	alert(values); //0,1,10,15,5
+	//sorting in descending order
+	(values.sort()).reverse();//5,15,10,1,0
+
+	//Both reverse() and sort() return a reference to the array on which they were applied.
+
+								/*MANIPULATION METHOD*/
+
+	//concat()-> 
+	/* create a new array based on all of the items in the current array.
+	This method begins by creating a copy of the array and then appending the method arguments to
+	the end and returning the newly constructed array. When no arguments are passed in, concat()
+	simply clones the array and returns it. If one or more arrays are passed in, concat() appends each
+	item in these arrays to the end of the result. If the values are not arrays, they are simply appended to the end of the resulting array.*/
+
+	var colors = [“red”, “green”, “blue”];
+	var colors2 = colors.concat(“yellow”, [“black”, “brown”]);
+	alert(colors); //red,green,blue
+	alert(colors2); //red,green,blue,yellow,black,brown
+									
+	//slice()-> 
+	/*The slice() method may accept one or two arguments: the starting and
+	stopping positions of the items to return. If only one argument is present, the method returns
+	all items between that position and the end of the array. If there are two arguments, the method
+	returns all items between the start position and the end position, not including the item in the end
+	position. Keep in mind that this operation does not affect the original array in any way*/
+
+
+	var colors = [“red”, “green”, “blue”, “yellow”, “purple”];
+	var colors2 = colors.slice(1);
+	var colors3 = colors.slice(1,4);
+	alert(colors2); //green,blue,yellow,purple
+	alert(colors3); //green,blue,yellow
+
+	//splice()-> 
+	// Deletion -> Array.splice(m,n) : m is the start index and n is the no of items to be delted it returns an array of deleted items
+	var a = [1,2,3,4,5]
+	a.splice(1,2); // [2,3]
+	console.log(a)// [1,4,5]
+
+	// Insertion->  Array.splice(m,n,o) : m is the start index and n is the no of items to be delted it returns an array of deleted items and o is the item to inserted on index m, there can also be more parameter which would  be simply inserted following o. if n=0 then it simply insert the items at index n without deleting anything.
+	var a = [1,2,3,4,5];
+	a.splice(1,0,10)//adds 10 at index 1 and returns an empty arrya. Remember: it only returns delted items as a array if nothing is delted simply returns an empty array.
+	console.log(a);//[1,10,2,3,4,5]
+	var a = [1,2,3,4,5];
+	a.splice(1,2,10,50)//[2,3]
+	console.log(a);//[1,10,50,4,5]
+
+	//Replacement -> Array(m,1,n) ; replace the element at index m with item n
+
+								 	/*LOCATION METHOD*/
+// indexOf()  and lastIndexOf()-> Each of these methods accepts two arguments: the item to look for and an optional index from which to start looking. The indexOf()method starts searching from the front of the array (item 0) and continues to the back, whereas lastIndexOf()starts from the last item in the array and continues to the front.The methods each return the position of the item in the array or –1 if the item isn’t in the array
+var numbers = [1,2,3,4,5,4,3,2,1];
+alert(numbers.indexOf(4)); //3
+alert(numbers.lastIndexOf(4)); //5
+alert(numbers.indexOf(4, 4)); //5
+alert(numbers.lastIndexOf(4, 4)); //3
+var person = { name: “Nicholas” };
+var people = [{ name: “Nicholas” }];
+var morePeople = [person];
+alert(people.indexOf(person)); //-1
+alert(morePeople.indexOf(person)); //0
+ 						/* Iterative Method*/
+//forEach()-> The forEach() method calls a function for each element in an array.
+let fish = [ "piranha", "barracuda", "cod", "eel" ];
+// Print out each item in the array
+fish.forEach(individualFish => {
+    console.log(individualFish);
+})
+
+//map()->The map() method creates a new array with the results of a function call on each element in the array.
+let fish = [ "piranha", "barracuda", "cod", "eel" ];
+
+// Print out each item in the array
+let printFish = fish.map(individualFish => {
+    console.log(individualFish);
+});
+
+printFish;
+
+// Pluralize all items in the fish array
+let pluralFish = fish.map(individualFish => {
+    return `${individualFish}s`;
+});
+
+pluralFish;//[ 'piranhas', 'barracudas', 'cods', 'eels' ]
+
+//filter()->The filter() method creates a new array with the elements that pass the result of a given test. We could use filter() to return a new array containing only the items in a list that start with a specific letter. To do this, we can utilize string indexing to call the first item (or letter) in each string item of the array.
+
+let seaCreatures = [ "shark", "whale", "squid", "starfish", "narwhal" ];
+
+// Filter all creatures that start with "s" into a new list
+let filteredList = seaCreatures.filter(creature => {
+  return creature[0] === "s";
+});
+
+filteredList;//[ 'shark', 'squid', 'starfish' ]
+
+ 
+
+
+
+
+
+
+
+
+	</script>
+	
+</body>
+</html>
