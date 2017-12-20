@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ShiftClick</title>
+</head>
+<body>
+	<ul>
+    <li><input type="checkbox">ONE</li>
+    <li><input type="checkbox">TWO</li>
+    <li><input type="checkbox">THREE</li>
+    <li><input type="checkbox">FOUR</li>
+    <li><input type="checkbox">FIVE</li>
+    <li><input type="checkbox">SIX</li>
+    <li><input type="checkbox">SEVEN</li>
+    <li><input type="checkbox">EIGHT</li>
+    <li><input type="checkbox">NINE</li>
+    <li><input type="checkbox">TEN</li>
+</ul>
+<script>
+var inputs = document.querySelectorAll('input');
+var inBetween = false;
+
+for(var i=0; i<10; i++){
+	inBetween = false;
+    if(i == 1 || i == 3){
+        inBetween = !inBetween;
+    }
+    if(inBetween){
+    inputs[i].checked = true;
+    }
+}
+</script>
+</body>
+</html>

@@ -10,13 +10,15 @@
     }
 
     canvas {
-        background-color: #ddd;
+       background-color: white;
     }
+
     </style>
 </head>
 
 <body>
     <canvas>
+    
     </canvas>
     <script>
     var canvas = document.querySelector('canvas');
@@ -124,8 +126,18 @@
     //     }
     // }, 10);
     
-    var dx = 5;
-    var dy = 5;
+    var Mouse={
+    	x:undefined,
+    	y:undefined
+    }
+    var maxRadius = 40;
+    var minRadius = 10;
+    window.addEventListener('mousemove', function (event){
+    	Mouse.x = event.x;
+    	Mouse.y = event.y;
+    	console.log(Mouse);
+    })
+    
     function Circle(x, y, dx, dy, radius) {
         this.x = x;
         this.y = y;
@@ -146,20 +158,34 @@
                 if ((this.x + this.radius) >innerWidth || (this.x - this.radius) < 0) {
                     this.dx = -this.dx;
                 }
+          
                 this.x += this.dx;
                 if ((this.y + this.radius) >innerHeight || (this.y - this.radius) < 0) {
                     this.dy = -this.dy;
                 }
                 this.y += this.dy;
+                //interactivity
+                if(Mouse.x-this.x<50 && Mouse.x-this.x>-50 && Mouse.y-this.y<50 && Mouse.y-this.y>-50){
+                	if(this.radius<maxRadius)
+                	{
+                	this.radius+=5;
+                }
+                }
+                else if(this.radius>minRadius){
+                	this.radius-=5;
+                }
+
                 this.draw();
             }    
     }
     var circles = [];
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i <1000; i++) {
     	var radius = 30;
         var x = Math.random() * (window.innerWidth-2*radius)+radius;
         var y = Math.random() * (window.innerHeight-2*radius)+radius;
-        circles.push(new Circle(x, y, dx, dy,  radius));     
+        var dx = 5-Math.random()*10;
+    	var dy = 5-Math.random()*10;
+        circles.push(new Circle(x, y, dx, dy, 1+Math.random()*10));     
     }
 function animate() {
          requestAnimationFrame(animate);
